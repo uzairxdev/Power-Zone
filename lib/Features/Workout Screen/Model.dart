@@ -1,8 +1,16 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:power_zone/Features/API%20Screens/BackExercise_Screen.dart';
-import 'package:power_zone/Features/API%20Screens/CardioExercise_Screen.dart';
-import 'package:power_zone/Features/API%20Screens/WaistExercises_Screen.dart';
+
+import '../API Screens/BackExercise_Screen.dart';
+import '../API Screens/CardioExercise_Screen.dart';
+import '../API Screens/ChestExercise_Screen.dart';
+import '../API Screens/LowerArmsEx_Screen.dart';
+import '../API Screens/LowerLegsEx_Screen.dart';
+import '../API Screens/NeckExcercise_Screen.dart';
+import '../API Screens/ShouldersExercise_Screen.dart';
+import '../API Screens/UpperArmsEx_Screen.dart';
+import '../API Screens/UpperLegsEx_Screen.dart';
+import '../API Screens/WaistExercises_Screen.dart';
 
 final List<Popular> popular = [
   Popular(
@@ -34,46 +42,55 @@ final List<Hard> hard = [
   Hard(
     imagUrl: "images/neckCategory.jpg",
     name: "Neck Exercises",
+    pagename: NeckExerciseScreen(),
   ),
   Hard(
     imagUrl: "images/shoulderCategory.jpg",
     name: "Shoulders Exercises",
+    pagename: ShouldersExerciseScreen(),
   ),
   Hard(
     imagUrl: "images/chestCategory.jpg",
     name: "Chest Exercises",
+    pagename: ChestExerciseScreen(),
   ),
 ];
 
 class Hard {
   final String imagUrl;
   final String name;
+  Widget pagename;
 
-  Hard({required this.imagUrl, required this.name});
+  Hard({required this.imagUrl, required this.name, required this.pagename});
 }
 
 final List<fullBody> fullbody = [
   fullBody(
     imagUrl: "images/upperArms.jpg",
     name: "Upper Arms Exercises",
+    pagename: UpperArmsExScreen(),
   ),
   fullBody(
     imagUrl: "images/lowerArms.jpg",
     name: "Lower Arms Exercises",
+    pagename: LowerArmsExScreen(),
   ),
   fullBody(
     imagUrl: "images/sule.png",
     name: "Upper Legs Exercises",
+    pagename: UpperLegsExScreen(),
   ),
   fullBody(
     imagUrl: "images/alexsandra.png",
     name: "Lower Legs Exercises",
+    pagename: LowerLegsExScreen(),
   )
 ];
 
 class fullBody {
   final String imagUrl;
   final String name;
+  Widget pagename;
 
-  fullBody({required this.imagUrl, required this.name});
+  fullBody({required this.imagUrl, required this.name, required this.pagename});
 }

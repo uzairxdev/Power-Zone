@@ -6,19 +6,19 @@ import 'package:power_zone/Features/API%20Screens/ApiDesign_Screen.dart';
 
 import '../../Core/Api_Models/Model.dart';
 
-class WaistExerciseScreen extends StatefulWidget {
-  const WaistExerciseScreen({Key? key}) : super(key: key);
+class NeckExerciseScreen extends StatefulWidget {
+  const NeckExerciseScreen({Key? key}) : super(key: key);
 
   @override
-  State<WaistExerciseScreen> createState() => _WaistExerciseScreenState();
+  State<NeckExerciseScreen> createState() => _NeckExerciseScreenState();
 }
 
-class _WaistExerciseScreenState extends State<WaistExerciseScreen> {
+class _NeckExerciseScreenState extends State<NeckExerciseScreen> {
   List<Model> backList = [];
 
   Future<List<Model>> getBackApi() async {
     var uri =
-        Uri.https('exercisedb.p.rapidapi.com', '/exercises/bodyPart/waist');
+        Uri.https('exercisedb.p.rapidapi.com', '/exercises/bodyPart/neck');
 
     print(uri.toString());
 
@@ -58,9 +58,9 @@ class _WaistExerciseScreenState extends State<WaistExerciseScreen> {
           backgroundColor: Colors.transparent,
           centerTitle: true,
           title: Text(
-            'Waist Workout',
+            'Neck Workout',
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 29,
               color: Colors.white.withOpacity(0.8),
               fontWeight: FontWeight.bold,
             ),
@@ -82,7 +82,7 @@ class _WaistExerciseScreenState extends State<WaistExerciseScreen> {
                     );
                   } else {
                     return ListView.builder(
-                      itemCount: 30,
+                      itemCount: 2,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.only(top: 20),

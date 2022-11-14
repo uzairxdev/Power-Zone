@@ -23,7 +23,7 @@ class _BackExerciseScreenState extends State<BackExerciseScreen> {
     print(uri.toString());
 
     final response = await http.get(uri, headers: {
-      'X-RapidAPI-Key': '02b54f84a5mshce7e918685fa1d0p1625d3jsn19f9526449eb',
+      'X-RapidAPI-Key': 'cd8544a298msh10ddab8d8c164fdp141d91jsnb1a153832223',
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     });
     print(response.toString());
