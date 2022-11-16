@@ -4,8 +4,6 @@ import 'package:power_zone/Features/Workout%20Screen/Workout_Screen.dart';
 import 'package:power_zone/Features/SignUp%20Screen/SignUp_Screen.dart';
 import 'package:power_zone/Features/Ultimate%20Women/UltimateWomen_Screen.dart';
 
-import '../Workout Screen/bottomNavBar.dart';
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 

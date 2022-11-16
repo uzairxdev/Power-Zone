@@ -8,6 +8,7 @@ import 'package:power_zone/Features/Pro%20Workout%20Screens/Screens/2nd_Screen.d
 import 'package:power_zone/Features/Pro%20Workout%20Screens/Helper%20files/Costum_Container.dart';
 import 'package:power_zone/Features/Pro%20Workout%20Screens/Helper%20files/costum_button.dart';
 import 'package:power_zone/Features/Pro%20Workout%20Screens/Helper%20files/costum_row.dart';
+import 'package:power_zone/Features/Workout%20Screen/bottomNavBar.dart';
 
 import '../Helper files/counter.dart';
 
@@ -88,7 +89,7 @@ class _TenthScreenState extends State<TenthScreen> {
                   text: 'Skip',
                   textColor: Colors.white,
                   onpressed: () {
-                    Get.to(WorkoutScreen());
+                    Get.to(BottomNavBar());
                   },
                 ),
                 SizedBox(

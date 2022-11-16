@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:power_zone/Features/Workout%20Screen/Workout_Screen.dart';
+import 'package:power_zone/Features/Category%20Screen/CategoryScreen.dart';
+import 'package:power_zone/Features/OnlineCourse%20Screens/PurchaseTrain_Screen.dart';
 import 'package:power_zone/Features/Profile%20Screen/Profile_Screen.dart';
+import 'package:power_zone/Features/Workout%20Screen/Workout_Screen.dart';
 
-import '../../Core/Costum_Color/App Colors/app_colors.dart';
+class BottomNavBar extends StatefulWidget {
+  @override
+  _BottomNavBarState createState() => _BottomNavBarState();
+}
 
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({
-    Key? key,
-    required this.appcolors,
-  }) : super(key: key);
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _selectedIndex = 0;
 
-  final Appcolors appcolors;
+  static List<dynamic> _widgetOptions = <dynamic>[
+    WorkoutScreen(),
+    CategoryScreen(),
+    ProfileScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 19, 20, 41),
-      child: Padding(
-        padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 3.h),
-        child: GNav(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: Container(
+        alignment: Alignment.bottomCenter,
+        height: 55.h,
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 19, 20, 41),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(0.9),
+            )
+          ],
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+          child: GNav(
             gap: 10,
             backgroundColor: Color.fromARGB(255, 19, 20, 41),
             color: Colors.grey,
-            activeColor: appcolors.blue,
+            activeColor: Colors.blue.withOpacity(0.8),
             tabBackgroundColor: Colors.grey.shade800,
             padding: EdgeInsets.all(16),
             iconSize: 26,
@@ -34,27 +54,24 @@ class BottomNavBar extends StatelessWidget {
               GButton(
                 icon: Icons.fitness_center_outlined,
                 text: 'Workout',
-                onPressed: () {
-                  Get.to(
-                    WorkoutScreen(),
-                  );
-                },
               ),
               GButton(
                 icon: Icons.grid_view_rounded,
                 text: 'Category',
-                onPressed: () {},
               ),
               GButton(
                 icon: Icons.person,
                 text: 'Profile',
-                onPressed: () {
-                  Get.to(
-                    ProfileScreen(),
-                  );
-                },
               ),
-            ]),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+          ),
+        ),
       ),
     );
   }

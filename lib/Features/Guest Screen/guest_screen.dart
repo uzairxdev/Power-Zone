@@ -261,7 +261,7 @@ class _GuestScreenState extends State<GuestScreen> {
                                 EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                             //splashColor: Colors.grey,
                             onPressed: () {
-                              Get.to(WorkoutScreen());
+                              Get.to(BottomNavBar());
                             },
                             child: Text(
                               'Next',
