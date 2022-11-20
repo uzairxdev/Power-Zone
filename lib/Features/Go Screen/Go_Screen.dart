@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
-import 'package:power_zone/Features/Pro%20Workout%20Screens/Screens/Home.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
 import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
 import '../../Core/Costum Widgets/Common Text/costum_txt.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
+import '../../Core/Costum_Color/App Colors/app_colors.dart';
 import '../OnlineCourse Screens/OnlineCourse_Screen.dart';
+import '../Workout Screen/BottomNavBar.dart';
 
 class GoScreen extends StatefulWidget {
   const GoScreen({super.key});
@@ -136,7 +136,7 @@ class _GoScreenState extends State<GoScreen> {
                           btnColor: appcolors.blue,
                           textColor: Colors.white,
                           onpressed: () {
-                            Get.to(Home());
+                            Get.to(BottomNavBar());
                           },
                         )
                       ],

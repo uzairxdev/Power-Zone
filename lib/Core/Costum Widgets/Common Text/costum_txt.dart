@@ -15,8 +15,8 @@ class Costum_txt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
-        fontSize: 22.sm,
+      style: GoogleFonts.alike(
+        fontSize: 21.sm,
         fontWeight: FontWeight.bold,
         color: fontcolor,
       ),

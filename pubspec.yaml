@@ -42,16 +42,7 @@ dependencies:
   email_validator: ^2.1.17
   get: ^4.6.5
   google_fonts: ^3.0.1
-  firebase_auth: ^3.8.0
-  firebase_core: ^1.22.0
-  firebase_database: ^9.1.4
-  firebase_storage: ^10.3.8
-  fluttertoast: ^8.0.9
-  ndialog: ^4.1.1+1
-  intl: ^0.17.0
-  image_picker: ^0.8.5+3
   path_provider: ^2.0.11
-  cloud_firestore: ^3.4.7
   google_nav_bar: ^5.0.6
   http: ^0.13.5
   countdown_progress_indicator: ^0.1.2
