@@ -38,69 +38,58 @@ class _DetailsScreenState extends State<DetailsScreen> {
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(
-                    radius: 60.0,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        bottom: 15.0,
-                        right: 15.0,
-                      ),
-                      child: Icon(
-                        Icons.person_add_outlined,
-                        size: 90,
-                        color: Colors.grey,
+                  Center(
+                    child: Costum_txt(
+                      text: 'Personal Details',
+                      fontcolor: appcolors.white,
+                    ),
+                  ),
+                  fixheight,
+                  Center(
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(30.r),
+                      onTap: () {},
+                      child: CircleAvatar(
+                        radius: 60.0,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            bottom: 15.0,
+                            right: 15.0,
+                          ),
+                          child: Icon(
+                            Icons.person_add_outlined,
+                            size: 90,
+                            color: Colors.grey,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                  Costum_txt(
-                    text: 'Personal Details',
-                    fontcolor: appcolors.white,
-                  ),
-                  fixheight,
-                  Padding(
-                    padding: EdgeInsets.only(right: 230.w, bottom: 5.h),
-                    child: Costum_txt(text: 'Name', fontcolor: appcolors.white),
-                  ),
+                  Costum_txt(text: 'Name', fontcolor: appcolors.white),
+                  fixheight3,
                   costum_txtfield3(
                     hintText: 'Enter Full Name',
                     prefixicon: Icons.person_outline,
                   ),
                   fixheight,
-                  Padding(
-                    padding: EdgeInsets.only(right: 210.w, bottom: 5.h),
-                    child:
-                        Costum_txt(text: 'Contact', fontcolor: appcolors.white),
-                  ),
+                  Costum_txt(text: 'Contact', fontcolor: appcolors.white),
+                  fixheight3,
                   costum_txtfield3(
                     hintText: 'Enter Your Contact',
                     prefixicon: Icons.contact_phone_outlined,
                   ),
                   fixheight,
-                  Padding(
-                    padding: EdgeInsets.only(right: 210.w, bottom: 5.h),
-                    child: Costum_txt(
-                        text: 'Category', fontcolor: appcolors.white),
-                  ),
-                  costum_txtfield3(
-                    hintText: 'Enter Your Category',
-                    prefixicon: Icons.category_outlined,
-                  ),
-                  fixheight,
-                  Padding(
-                    padding: EdgeInsets.only(right: 230.w, bottom: 5.h),
-                    child:
-                        Costum_txt(text: 'Weight', fontcolor: appcolors.white),
-                  ),
+                  Costum_txt(text: 'Weight', fontcolor: appcolors.white),
+                  fixheight3,
                   costum_txtfield3(
                     hintText: 'Enter Your Weight',
                     prefixicon: Icons.line_weight_outlined,
                   ),
                   fixheight,
-                  Padding(
-                    padding: EdgeInsets.only(right: 250.w, bottom: 5.h),
-                    child: Costum_txt(text: 'Age', fontcolor: appcolors.white),
-                  ),
+                  Costum_txt(text: 'Age', fontcolor: appcolors.white),
+                  fixheight3,
                   costum_txtfield3(
                     hintText: 'Enter Your Age',
                     prefixicon: Icons.live_help_outlined,

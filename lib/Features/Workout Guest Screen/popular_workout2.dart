@@ -7,8 +7,8 @@ import 'package:power_zone/Features/Workout%20Screen/Model.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 
-class HardWorkout extends StatelessWidget {
-  const HardWorkout({
+class PopularWorkout2 extends StatelessWidget {
+  const PopularWorkout2({
     Key? key,
     required this.appcolors,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class HardWorkout extends StatelessWidget {
           Row(
             children: [
               Text(
-                "Hard Workout",
+                "Popular Workout",
                 style: GoogleFonts.lato(
                   fontSize: 30,
                   color: appcolors.white,
@@ -39,12 +39,12 @@ class HardWorkout extends StatelessWidget {
             width: double.infinity,
             height: 200.h,
             child: ListView.builder(
-                itemCount: hard.length,
+                itemCount: popular.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, index) {
                   return InkWell(
                     onTap: () {
-                      Get.to(hard[index].pagename);
+                      Get.to(popular[index].pagename);
                     },
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -54,21 +54,20 @@ class HardWorkout extends StatelessWidget {
                             height: 160.h,
                             width: 135.w,
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  hard[index].imagUrl,
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    popular[index].imagUrl,
+                                  ),
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.4),
+                                      BlendMode.darken),
+                                  fit: BoxFit.cover,
                                 ),
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black.withOpacity(0.4),
-                                    BlendMode.darken),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: BorderRadius.circular(20.r),
-                            ),
+                                borderRadius: BorderRadius.circular(20.r)),
                           ),
                           fixheight3,
                           Text(
-                            hard[index].name,
+                            popular[index].name,
                             style: TextStyle(
                               color: appcolors.white,
                               fontSize: 15,

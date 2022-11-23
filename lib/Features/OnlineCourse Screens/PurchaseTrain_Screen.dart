@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
 import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
 
@@ -278,7 +277,7 @@ class _PurchaseTrainScreenState extends State<PurchaseTrainScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Degin Train For \$3.5',
+                              'Begin Train For \$3.5',
                               style: TextStyle(
                                 color: appcolors.white,
                                 fontSize: 17,
@@ -301,7 +300,7 @@ class _PurchaseTrainScreenState extends State<PurchaseTrainScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Degin Train Demo',
+                              'Begin Train Demo',
                               style: TextStyle(
                                 color: appcolors.white,
                                 fontSize: 17,
@@ -319,7 +318,7 @@ class _PurchaseTrainScreenState extends State<PurchaseTrainScreen> {
                     ),
                     Container(
                       height: 100,
-                      width: 100,
+                      width: double.infinity,
                       color: Colors.blueAccent,
                     ),
                   ]),

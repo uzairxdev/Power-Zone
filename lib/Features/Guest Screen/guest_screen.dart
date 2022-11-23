@@ -7,7 +7,7 @@ import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 import '../Landing Screen/Landing_Screen.dart';
-import '../Workout Screen/BottomNavBar.dart';
+import '../Workout Guest Screen/BottomNavBar2.dart';
 
 class GuestScreen extends StatefulWidget {
   @override
@@ -261,7 +261,7 @@ class _GuestScreenState extends State<GuestScreen> {
                                 EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                             //splashColor: Colors.grey,
                             onPressed: () {
-                              Get.to(BottomNavBar());
+                              Get.to(BottomNavBar2());
                             },
                             child: Text(
                               'Next',

@@ -54,17 +54,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 200.w, bottom: 5.h),
-                    child: Costum_txt(
-                        text: 'Username', fontcolor: appcolors.white),
-                  ),
-                  costum_txtfield3(
-                    hintText: 'Username is must',
-                    prefixicon: Icons.person_outline,
-                    sufixicon: Icons.check,
-                  ),
-                  fixheight,
-                  Padding(
                     padding: EdgeInsets.only(right: 230.w, bottom: 5.h),
                     child:
                         Costum_txt(text: 'Email', fontcolor: appcolors.white),

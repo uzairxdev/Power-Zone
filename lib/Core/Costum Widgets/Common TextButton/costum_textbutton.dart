@@ -25,7 +25,7 @@ class costum_textbutton extends StatelessWidget {
       onPressed: onpressed,
       child: Text(
         name,
-        style: GoogleFonts.lato(
+        style: GoogleFonts.alike(
           fontSize: fontsize,
           fontWeight: FontWeight.bold,
           color: txtColor,

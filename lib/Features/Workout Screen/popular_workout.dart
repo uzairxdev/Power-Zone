@@ -54,16 +54,16 @@ class PopularWorkout extends StatelessWidget {
                             height: 160.h,
                             width: 135.w,
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  popular[index].imagUrl,
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    popular[index].imagUrl,
+                                  ),
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.4),
+                                      BlendMode.darken),
+                                  fit: BoxFit.cover,
                                 ),
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black.withOpacity(0.4),
-                                    BlendMode.darken),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                                borderRadius: BorderRadius.circular(20.r)),
                           ),
                           fixheight3,
                           Text(

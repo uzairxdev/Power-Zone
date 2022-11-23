@@ -63,6 +63,7 @@ class FullBodyWorkout extends StatelessWidget {
                                     BlendMode.darken),
                                 fit: BoxFit.cover,
                               ),
+                              borderRadius: BorderRadius.circular(20.r),
                             ),
                           ),
                           fixheight3,
