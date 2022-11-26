@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20TextButton/costum_textbutton.dart';
 import 'package:power_zone/Features/SignUp%20Screen/SignUp_Screen.dart';
-import 'package:power_zone/Features/Workout%20Screen/Model.dart';
+import 'package:power_zone/Features/Home%20Screens/Model.dart';
 
-import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
-import '../../Core/Costum_Color/App Colors/app_colors.dart';
+import '../../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
+import '../../../Core/Costum_Color/App Colors/app_colors.dart';
 
 class FullBodyWorkout2 extends StatelessWidget {
   const FullBodyWorkout2({

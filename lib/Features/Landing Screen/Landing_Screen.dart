@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
-import 'package:power_zone/Features/Guest%20Screen/guest_screen.dart';
+import 'package:power_zone/Features/Guest%20Screens/guest_screen.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
 import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';

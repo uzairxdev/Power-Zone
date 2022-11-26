@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
+import 'package:power_zone/Features/Login%20Screen/Login_Screen.dart';
+import 'package:quickalert/quickalert.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
 import '../../Core/Costum Widgets/Common TextField/costum_textField.dart';
@@ -74,10 +76,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     prefixicon: Icons.person_outline,
                   ),
                   fixheight,
-                  Costum_txt(text: 'Contact', fontcolor: appcolors.white),
+                  Costum_txt(text: 'Phone', fontcolor: appcolors.white),
                   fixheight3,
                   costum_txtfield3(
-                    hintText: 'Enter Your Contact',
+                    hintText: 'Enter Your Phone Number',
                     prefixicon: Icons.contact_phone_outlined,
                   ),
                   fixheight,
@@ -96,12 +98,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ),
                   fixheight,
                   costum_button(
-                    text: 'Continue',
+                    text: 'Submit',
                     btnColor: appcolors.blue,
                     textColor: Colors.white,
                     onpressed: () {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.loading,
+                        title: 'Details',
+                        text: 'Submiting your data please wait.....',
+                      );
                       Get.to(
-                        UtlimateWomenScreen(),
+                        LoginScreen(),
                       );
                     },
                   )

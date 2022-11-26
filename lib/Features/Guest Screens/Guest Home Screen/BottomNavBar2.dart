@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:power_zone/Features/Category%20Screen/CategoryScreen.dart';
-import 'package:power_zone/Features/Profile%20Screen/Profile_Screen.dart';
-import 'package:power_zone/Features/Workout%20Screen/Workout_Screen.dart';
 
-class BottomNavBar extends StatefulWidget {
+import 'GuestHomeScreen.dart';
+import 'Workout_Guest_Screen.dart';
+
+class BottomNavBar2 extends StatefulWidget {
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  _BottomNavBar2State createState() => _BottomNavBar2State();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _BottomNavBar2State extends State<BottomNavBar2> {
   int _selectedIndex = 0;
 
   static List<dynamic> _widgetOptions = <dynamic>[
-    WorkoutScreen(),
-    CategoryScreen(),
-    ProfileScreen()
+    WorkoutguestScreen(),
+    GuestHomeScreen(),
+    GuestHomeScreen()
   ];
 
   @override

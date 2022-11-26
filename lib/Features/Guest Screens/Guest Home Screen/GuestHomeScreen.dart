@@ -3,16 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
-import '../../Core/Costum_Color/App Colors/app_colors.dart';
-import '../SignUp Screen/SignUp_Screen.dart';
+import '../../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
+import '../../../Core/Costum_Color/App Colors/app_colors.dart';
+import '../../SignUp Screen/SignUp_Screen.dart';
 
-class ProfileGuestScreen extends StatefulWidget {
+class GuestHomeScreen extends StatefulWidget {
   @override
-  _ProfileGuestScreenState createState() => _ProfileGuestScreenState();
+  _GuestHomeScreenState createState() => _GuestHomeScreenState();
 }
 
-class _ProfileGuestScreenState extends State<ProfileGuestScreen> {
+class _GuestHomeScreenState extends State<GuestHomeScreen> {
   Appcolors appcolors = Appcolors();
   bool click = true;
   @override

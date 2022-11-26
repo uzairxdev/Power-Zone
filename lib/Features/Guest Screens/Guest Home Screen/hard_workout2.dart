@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
-import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
-import '../../Core/Costum_Color/App Colors/app_colors.dart';
-import '../SignUp Screen/SignUp_Screen.dart';
+import '../../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
+import '../../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
+import '../../../Core/Costum_Color/App Colors/app_colors.dart';
+import '../../SignUp Screen/SignUp_Screen.dart';
 
 class HardWorkout2 extends StatelessWidget {
   const HardWorkout2({

@@ -3,19 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
-import 'package:power_zone/Features/Workout%20Screen/fullBody_workout.dart';
-import 'package:power_zone/Features/Workout%20Screen/hard_workout.dart';
-import 'package:power_zone/Features/Workout%20Screen/popular_workout.dart';
+import 'package:power_zone/Features/Home%20Screens/fullBody_workout.dart';
+import 'package:power_zone/Features/Home%20Screens/hard_workout.dart';
+import 'package:power_zone/Features/Home%20Screens/popular_workout.dart';
 import 'package:power_zone/Features/OnlineCourse%20Screens/PurchaseTrain_Screen.dart';
 
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 
-class WorkoutScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _WorkoutScreenState createState() => _WorkoutScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _WorkoutScreenState extends State<WorkoutScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   Appcolors appcolors = Appcolors();
 
   @override

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
+import 'package:power_zone/Features/Landing%20Screen/Landing_Screen.dart';
+import 'package:power_zone/Features/Login%20Screen/Login_Screen.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 
@@ -205,6 +209,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       confirmBtnText: 'Yes',
                       cancelBtnText: 'No',
                       confirmBtnColor: Colors.red,
+                      onConfirmBtnTap: () async {
+                        final SharedPreferences sharedPreferences =
+                            await SharedPreferences.getInstance();
+                        sharedPreferences.remove('Email');
+                        Get.to(LandingScreen());
+                      },
                     );
                   },
                   child: Row(

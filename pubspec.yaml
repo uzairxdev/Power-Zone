@@ -47,6 +47,7 @@ dependencies:
   http: ^0.13.5
   countdown_progress_indicator: ^0.1.2
   quickalert: ^1.0.0
+  shared_preferences: ^0.5.5
 
 flutter_icons:
   image_path: "images/Icon.jpg"

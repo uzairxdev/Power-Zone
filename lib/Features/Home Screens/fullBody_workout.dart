@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:power_zone/Features/Workout%20Screen/Model.dart';
+import 'package:power_zone/Features/Home%20Screens/Model.dart';
 
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 
-class PopularWorkout2 extends StatelessWidget {
-  const PopularWorkout2({
+class FullBodyWorkout extends StatelessWidget {
+  const FullBodyWorkout({
     Key? key,
     required this.appcolors,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class PopularWorkout2 extends StatelessWidget {
           Row(
             children: [
               Text(
-                "Popular Workout",
+                "Full Body Workout",
                 style: GoogleFonts.lato(
                   fontSize: 30,
                   color: appcolors.white,
@@ -39,12 +39,12 @@ class PopularWorkout2 extends StatelessWidget {
             width: double.infinity,
             height: 200.h,
             child: ListView.builder(
-                itemCount: popular.length,
+                itemCount: fullbody.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, index) {
                   return InkWell(
                     onTap: () {
-                      Get.to(popular[index].pagename);
+                      Get.to(fullbody[index].pagename);
                     },
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -54,20 +54,21 @@ class PopularWorkout2 extends StatelessWidget {
                             height: 160.h,
                             width: 135.w,
                             decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    popular[index].imagUrl,
-                                  ),
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.4),
-                                      BlendMode.darken),
-                                  fit: BoxFit.cover,
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  fullbody[index].imagUrl,
                                 ),
-                                borderRadius: BorderRadius.circular(20.r)),
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black.withOpacity(0.4),
+                                    BlendMode.darken),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: BorderRadius.circular(20.r),
+                            ),
                           ),
                           fixheight3,
                           Text(
-                            popular[index].name,
+                            fullbody[index].name,
                             style: TextStyle(
                               color: appcolors.white,
                               fontSize: 15,

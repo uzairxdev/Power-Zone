@@ -4,9 +4,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:power_zone/Features/Home%20Screens/BottomNavBar.dart';
+import 'package:power_zone/Features/Home%20Screens/Home_Screen.dart';
+import 'package:power_zone/Features/Login%20Screen/Login_Screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Landing Screen/Landing_Screen.dart';
+
+String? finalEmail;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,16 +24,21 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void initState() {
+    getValidationData().whenComplete(() async {
+      Timer(Duration(seconds: 6),
+          () => Get.to(finalEmail == null ? LandingScreen() : BottomNavBar()));
+    });
     super.initState();
-    Timer(
-      Duration(seconds: 6),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LandingScreen(),
-        ),
-      ),
-    );
+  }
+
+  Future getValidationData() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    var ObtainedEmail = sharedPreferences.getString('Email');
+
+    setState(() {
+      finalEmail = ObtainedEmail;
+    });
   }
 
   @override

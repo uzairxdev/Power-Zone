@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
 import '../../Core/Costum Widgets/Common TextField/costum_textField.dart';
@@ -85,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: 'Sign in',
                   btnColor: appcolors.blue,
                   textColor: Colors.white,
-                  onpressed: () {
+                  onpressed: () async {
                     var Email = emailcontroller.text.trim();
                     var Password = passwordcontroller.text.trim();
 
@@ -110,6 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                     // request to firebase auth
 
+//Progress bar
                     QuickAlert.show(
                       context: context,
                       type: QuickAlertType.loading,
@@ -119,6 +121,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       text: 'Fetching Your Data',
                       textColor: appcolors.white,
                     );
+
+                    final SharedPreferences sharedPreferences =
+                        await SharedPreferences.getInstance();
+                    sharedPreferences.setString('Email', Email);
 
                     Get.to(
                       UtlimateWomenScreen(),

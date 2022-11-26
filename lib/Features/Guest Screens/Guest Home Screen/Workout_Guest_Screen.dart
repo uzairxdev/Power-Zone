@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:power_zone/Features/Guest%20Screens/Guest%20Home%20Screen/GuestHomeScreen.dart';
 
-import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
-import '../../Core/Costum_Color/App Colors/app_colors.dart';
-import '../OnlineCourse Screens/PurchaseTrain_Screen.dart';
+import '../../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
+import '../../../Core/Costum_Color/App Colors/app_colors.dart';
+import '../../OnlineCourse Screens/PurchaseTrain_Screen.dart';
 import 'fullBody_workout2.dart';
 import 'hard_workout2.dart';
 import 'popular_workout2.dart';
@@ -62,20 +63,25 @@ class _WorkoutguestScreenState extends State<WorkoutguestScreen> {
                           ),
                         ],
                       ),
-                      Container(
-                        width: 48.w,
-                        height: 45.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40.0),
-                          border: Border.all(
-                            width: 3.w,
-                            color: appcolors.blue,
+                      InkWell(
+                        onTap: () {
+                          Get.to(GuestHomeScreen());
+                        },
+                        child: Container(
+                          width: 48.w,
+                          height: 45.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40.0),
+                            border: Border.all(
+                              width: 3.w,
+                              color: appcolors.blue,
+                            ),
                           ),
-                        ),
-                        child: Icon(
-                          Icons.person_outline,
-                          color: appcolors.white,
-                          size: 35,
+                          child: Icon(
+                            Icons.person_outline,
+                            color: appcolors.white,
+                            size: 35,
+                          ),
                         ),
                       ),
                     ],
@@ -94,7 +100,7 @@ class _WorkoutguestScreenState extends State<WorkoutguestScreen> {
                       child: InkWell(
                         onTap: () {
                           Get.to(
-                            PurchaseTrainScreen(),
+                            GuestHomeScreen(),
                           );
                         },
                         child: Container(

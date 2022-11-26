@@ -9,7 +9,7 @@ import '../../Core/Costum Widgets/Common Text/costum_txt.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 import '../OnlineCourse Screens/OnlineCourse_Screen.dart';
-import '../Workout Screen/BottomNavBar.dart';
+import '../Home Screens/BottomNavBar.dart';
 
 class GoScreen extends StatefulWidget {
   const GoScreen({super.key});
