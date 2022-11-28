@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
 import 'package:power_zone/Features/Landing%20Screen/Landing_Screen.dart';
 import 'package:power_zone/Features/Profile%20Screen/ProfileEditScreen.dart';
+import 'package:power_zone/Features/User%20Agreement%20Screen/UserAgreementScreen.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,85 +105,91 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
-          fixheight,
-          Container(
-            height: 210.h,
-            width: 330.w,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 27, 27, 52),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 10.h),
-              child: Column(
-                children: [
-                  CostumDetails(
-                      icon: Icons.email_outlined,
-                      text1: 'Email',
-                      text2: 'uzairdev2@flutter.com',
-                      appcolors: appcolors),
-                  fixheight3,
-                  Divider(
-                    color: Colors.grey[700],
-                  ),
-                  fixheight3,
-                  CostumDetails(
-                      icon: Icons.phone_outlined,
-                      text1: 'Phone',
-                      text2: '+92 317 096 73 85',
-                      appcolors: appcolors),
-                  fixheight3,
-                  Divider(
-                    color: Colors.grey[700],
-                  ),
-                  fixheight3,
-                  CostumDetails(
-                      icon: Icons.calendar_month_outlined,
-                      text1: 'Date Of Birth',
-                      text2: 'Friday, 05 April 2002',
-                      appcolors: appcolors)
-                ],
+          Padding(
+            padding: EdgeInsets.all(17.sp),
+            child: Container(
+              height: 180.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 27, 27, 52),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 10.h),
+                child: Column(
+                  children: [
+                    CostumDetails(
+                        icon: Icons.email_outlined,
+                        text1: 'Email',
+                        text2: 'uzairdev2@flutter.com',
+                        appcolors: appcolors),
+                    fixheight3,
+                    Divider(
+                      color: Colors.grey[700],
+                    ),
+                    fixheight3,
+                    CostumDetails(
+                        icon: Icons.phone_outlined,
+                        text1: 'Phone',
+                        text2: '+92 317 096 73 85',
+                        appcolors: appcolors),
+                    fixheight3,
+                    Divider(
+                      color: Colors.grey[700],
+                    ),
+                    fixheight3,
+                    CostumDetails(
+                        icon: Icons.calendar_month_outlined,
+                        text1: 'Date Of Birth',
+                        text2: 'Friday, 05 April 2002',
+                        appcolors: appcolors)
+                  ],
+                ),
               ),
             ),
           ),
-          fixheight,
-          Container(
-            height: 160.h,
-            width: 330.w,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 27, 27, 52),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 10.h),
-              child: Column(
-                children: [
-                  CostumDetails2(
-                    icon: Icons.badge_outlined,
-                    text: 'Invite Friends     ',
-                    onpressed: () {},
-                  ),
-                  fixheight3,
-                  Divider(
-                    color: Colors.grey[700],
-                  ),
-                  fixheight3,
-                  CostumDetails2(
-                    icon: Icons.supervised_user_circle_outlined,
-                    text: 'User Agreement',
-                    onpressed: () {},
-                  ),
-                  fixheight3,
-                  Divider(
-                    color: Colors.grey[700],
-                  ),
-                  fixheight3,
-                  CostumDetails2(
-                    icon: Icons.settings_outlined,
-                    text: 'Settings               ',
-                    onpressed: () {},
-                  ),
-                ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 17.w),
+            child: Container(
+              height: 160.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 27, 27, 52),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 10.h),
+                child: Column(
+                  children: [
+                    CostumDetails2(
+                      icon: Icons.badge_outlined,
+                      text: 'Invite Friends     ',
+                    ),
+                    fixheight3,
+                    Divider(
+                      color: Colors.grey[700],
+                    ),
+                    fixheight3,
+                    InkWell(
+                      onTap: () {
+                        Get.to(UserAgreementScreen());
+                      },
+                      child: CostumDetails2(
+                        icon: Icons.supervised_user_circle_outlined,
+                        text: 'User Agreement',
+                      ),
+                    ),
+                    fixheight3,
+                    Divider(
+                      color: Colors.grey[700],
+                    ),
+                    fixheight3,
+                    CostumDetails2(
+                      icon: Icons.settings_outlined,
+                      text: 'Settings               ',
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -252,33 +259,28 @@ class CostumDetails2 extends StatelessWidget {
   const CostumDetails2({
     required this.icon,
     required this.text,
-    required this.onpressed,
     Key? key,
   }) : super(key: key);
 
   final String text;
   final IconData icon;
-  final VoidCallback onpressed;
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Icon(
           icon,
           color: Colors.white,
           size: 35,
         ),
-        fixwidth,
         Text(
           text,
           style: GoogleFonts.alike(
             color: Colors.white,
-            fontSize: 25,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
-        ),
-        SizedBox(
-          width: 40.w,
         ),
         Icon(
           Icons.arrow_forward_ios_outlined,
@@ -323,14 +325,14 @@ class CostumDetails extends StatelessWidget {
               style: GoogleFonts.alike(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 25,
+                fontSize: 20,
               ),
             ),
             Text(
               text2,
               style: GoogleFonts.alike(
                   color: appcolors.white,
-                  fontSize: 17,
+                  fontSize: 13,
                   fontWeight: FontWeight.bold),
             )
           ],

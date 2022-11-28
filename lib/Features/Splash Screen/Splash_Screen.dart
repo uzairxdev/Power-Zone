@@ -25,8 +25,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     getValidationData().whenComplete(() async {
-      Timer(Duration(seconds: 6),
-          () => Get.to(finalEmail == null ? LandingScreen() : BottomNavBar()));
+      Timer(
+          Duration(seconds: 6),
+          () => Get.offAll(
+              finalEmail == null ? LandingScreen() : BottomNavBar()));
     });
     super.initState();
   }

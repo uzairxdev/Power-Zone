@@ -62,7 +62,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                         ),
                         child: IconButton(
                           onPressed: () {
-                            Get.to(ProfileScreen());
+                            Get.back();
                           },
                           icon: Icon(
                             Icons.arrow_back_ios_new,
