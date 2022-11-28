@@ -8,7 +8,6 @@ import '../../Core/Costum Widgets/Common TextField/costum_textField.dart';
 import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
 import '../../Core/Costum Widgets/Common Text/costum_txt.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
-import '../Details Screen/Details_Screen.dart';
 import '../Login Screen/Login_Screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -86,13 +85,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   fixheight,
                   costum_button(
-                    text: 'Next',
+                    text: 'Sign Up',
                     btnColor: appcolors.blue,
                     textColor: Colors.white,
                     onpressed: () {
                       Get.to(
-                        DetailsScreen(),
-                      );
+                          // Go to Details Screen
+                          LoginScreen());
                     },
                   ),
                   SizedBox(

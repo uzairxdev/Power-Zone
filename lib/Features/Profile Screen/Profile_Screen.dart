@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
 import 'package:power_zone/Features/Landing%20Screen/Landing_Screen.dart';
-import 'package:power_zone/Features/Login%20Screen/Login_Screen.dart';
+import 'package:power_zone/Features/Profile%20Screen/ProfileEditScreen.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -90,11 +90,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(ProfileEditScreen());
+                      },
                       icon: Icon(
-                        Icons.edit,
+                        Icons.mode_edit_outlined,
                         color: Colors.white,
-                        size: 29,
+                        size: 30,
                       ),
                     ),
                   ),
