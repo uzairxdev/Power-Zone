@@ -27,8 +27,8 @@ class _LandingScreenState extends State<LandingScreen> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-              "https://images.pexels.com/photos/775325/pexels-photo-775325.png?auto=compress&cs=tinysrgb&w=600",
+            image: AssetImage(
+              "images/back4.jpg",
             ),
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.7), BlendMode.darken),

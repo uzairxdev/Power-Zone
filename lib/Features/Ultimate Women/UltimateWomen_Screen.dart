@@ -6,7 +6,7 @@ import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
 import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
 import '../../Core/Costum Widgets/Common Text/costum_txt.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
-import '../Go Screen/Go_Screen.dart';
+import '../Start Screen/Start_Screen.dart';
 import '../OnlineCourse Screens/OnlineCourse_Screen.dart';
 
 class UtlimateWomenScreen extends StatefulWidget {
@@ -23,8 +23,8 @@ class _UtlimateWomenScreenState extends State<UtlimateWomenScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const NetworkImage(
-            'https://images.pexels.com/photos/13106586/pexels-photo-13106586.jpeg?auto=compress&cs=tinysrgb&w=600',
+          image: const AssetImage(
+            'images/back7.jpg',
           ),
           colorFilter:
               ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
@@ -83,7 +83,7 @@ class _UtlimateWomenScreenState extends State<UtlimateWomenScreen> {
                               txtColor: Colors.white,
                               onpressed: () {
                                 Get.to(
-                                  GoScreen(),
+                                  StartScreen(),
                                 );
                               },
                             ),

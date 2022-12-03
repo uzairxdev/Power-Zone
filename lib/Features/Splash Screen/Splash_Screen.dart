@@ -6,12 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:power_zone/Features/Home%20Screens/BottomNavBar.dart';
-import 'package:power_zone/Features/Home%20Screens/Home_Screen.dart';
-import 'package:power_zone/Features/Login%20Screen/Login_Screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Landing Screen/Landing_Screen.dart';
+import '../Start Screen/Start_Screen.dart';
 
 String? finalEmail;
 
@@ -27,8 +25,8 @@ class _SplashScreenState extends State<SplashScreen> {
     getValidationData().whenComplete(() async {
       Timer(
           Duration(seconds: 6),
-          () => Get.offAll(
-              finalEmail == null ? LandingScreen() : BottomNavBar()));
+          () =>
+              Get.offAll(finalEmail == null ? LandingScreen() : StartScreen()));
     });
     super.initState();
   }

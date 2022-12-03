@@ -55,7 +55,7 @@ class HardWorkout extends StatelessWidget {
                             width: 135.w,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage(
+                                image: AssetImage(
                                   hard[index].imagUrl,
                                 ),
                                 colorFilter: ColorFilter.mode(

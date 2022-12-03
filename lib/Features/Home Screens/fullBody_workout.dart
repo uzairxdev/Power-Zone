@@ -55,7 +55,7 @@ class FullBodyWorkout extends StatelessWidget {
                             width: 135.w,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage(
+                                image: AssetImage(
                                   fullbody[index].imagUrl,
                                 ),
                                 colorFilter: ColorFilter.mode(

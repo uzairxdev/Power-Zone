@@ -15,13 +15,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   static List<dynamic> _widgetOptions = <dynamic>[
     HomeScreen(),
-    ShopScreen(),
+    StoreScreen(),
     ProfileScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       resizeToAvoidBottomInset: false,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

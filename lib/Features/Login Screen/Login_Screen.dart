@@ -33,8 +33,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(
-            'https://img.freepik.com/premium-photo/fit-blonde-woman-training-lifting-bar-weights-gym_153437-4463.jpg?w=360',
+          image: AssetImage(
+            'images/back1.jpg',
           ),
           colorFilter:
               ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.darken),

@@ -2,27 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
 
-class ShopScreen extends StatefulWidget {
+class StoreScreen extends StatefulWidget {
   @override
-  _ShopScreenState createState() => _ShopScreenState();
+  _StoreScreenState createState() => _StoreScreenState();
 }
 
-class _ShopScreenState extends State<ShopScreen> {
+class _StoreScreenState extends State<StoreScreen> {
   Appcolors appcolors = Appcolors();
   @override
   Widget build(BuildContext context) {
     return Container(
+      //This Container is used for the background image
       height: double.infinity,
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(
-              "https://images.pexels.com/photos/2468339/pexels-photo-2468339.jpeg?auto=compress&cs=tinysrgb&w=600"),
+          image: AssetImage("images/back3.png"),
           colorFilter:
-              ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
+              ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.darken),
           fit: BoxFit.cover,
         ),
       ),
+      //Start Scaffold Widget
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,

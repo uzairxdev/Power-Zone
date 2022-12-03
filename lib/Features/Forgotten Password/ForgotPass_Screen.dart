@@ -24,22 +24,21 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-                "https://images.pexels.com/photos/9602280/pexels-photo-9602280.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"),
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.6), BlendMode.colorBurn),
-            fit: BoxFit.cover,
-          ),
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/back2.jpeg"),
+          colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.6), BlendMode.colorBurn),
+          fit: BoxFit.cover,
         ),
-        child: Padding(
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: false,
+        body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 60.h),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

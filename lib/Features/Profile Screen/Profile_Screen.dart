@@ -266,28 +266,31 @@ class CostumDetails2 extends StatelessWidget {
   final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Icon(
-          icon,
-          color: Colors.white,
-          size: 35,
-        ),
-        Text(
-          text,
-          style: GoogleFonts.alike(
+    return Padding(
+      padding: EdgeInsets.only(top: 3.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Icon(
+            icon,
             color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+            size: 30,
           ),
-        ),
-        Icon(
-          Icons.arrow_forward_ios_outlined,
-          color: Colors.white,
-          size: 25,
-        )
-      ],
+          Text(
+            text,
+            style: GoogleFonts.alike(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Icon(
+            Icons.arrow_forward_ios_outlined,
+            color: Colors.white,
+            size: 22,
+          )
+        ],
+      ),
     );
   }
 }
@@ -309,35 +312,38 @@ class CostumDetails extends StatelessWidget {
   final String text2;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          icon,
-          color: Colors.white,
-          size: 35,
-        ),
-        fixwidth,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              text1,
-              style: GoogleFonts.alike(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+    return Padding(
+      padding: EdgeInsets.only(top: 3.h),
+      child: Row(
+        children: [
+          Icon(
+            icon,
+            color: Colors.white,
+            size: 30,
+          ),
+          fixwidth,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                text1,
+                style: GoogleFonts.alike(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
-            ),
-            Text(
-              text2,
-              style: GoogleFonts.alike(
-                  color: appcolors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold),
-            )
-          ],
-        )
-      ],
+              Text(
+                text2,
+                style: GoogleFonts.alike(
+                    color: appcolors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

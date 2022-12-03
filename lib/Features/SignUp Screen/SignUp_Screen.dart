@@ -30,8 +30,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-              'https://e0.pxfuel.com/wallpapers/606/355/desktop-wallpaper-iphone-gym-physical-fitness.jpg',
+            image: AssetImage(
+              'images/back6.jpg',
             ),
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.5), BlendMode.darken),

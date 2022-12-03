@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 3,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.transparent,
         body: Container(
           width: double.infinity,
           height: double.infinity,
