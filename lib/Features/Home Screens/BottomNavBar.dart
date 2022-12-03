@@ -15,7 +15,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   static List<dynamic> _widgetOptions = <dynamic>[
     HomeScreen(),
-    CategoryScreen(),
+    ShopScreen(),
     ProfileScreen()
   ];
 
@@ -56,7 +56,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               GButton(
                 icon: Icons.grid_view_rounded,
-                text: 'Category',
+                text: 'E Shop',
               ),
               GButton(
                 icon: Icons.person,

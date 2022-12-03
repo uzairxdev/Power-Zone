@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
 
-class CategoryScreen extends StatefulWidget {
+class ShopScreen extends StatefulWidget {
   @override
-  _CategoryScreenState createState() => _CategoryScreenState();
+  _ShopScreenState createState() => _ShopScreenState();
 }
 
-class _CategoryScreenState extends State<CategoryScreen> {
+class _ShopScreenState extends State<ShopScreen> {
   Appcolors appcolors = Appcolors();
   bool click = true;
   @override
@@ -33,7 +33,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 70.0),
                     child: Text(
-                      "POWER  ",
+                      "ZONE  ",
                       style: GoogleFonts.bebasNeue(
                         fontSize: 36,
                         color: appcolors.white,
@@ -44,7 +44,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 70.0),
                     child: Text(
-                      "ZONE",
+                      "SHOP",
                       style: GoogleFonts.bebasNeue(
                         fontSize: 36,
                         color: appcolors.blue,
