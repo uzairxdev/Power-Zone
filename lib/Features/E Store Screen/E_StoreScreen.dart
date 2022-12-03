@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
+import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
+
+import '../../Core/Costum_Color/App Colors/app_colors.dart';
+import '../../Core/Model/model.dart';
 
 class StoreScreen extends StatefulWidget {
   @override
@@ -37,7 +40,7 @@ class _StoreScreenState extends State<StoreScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 70.0),
                     child: Text(
-                      "ZONE  ",
+                      "POWER  ",
                       style: GoogleFonts.bebasNeue(
                         fontSize: 36,
                         color: appcolors.white,
@@ -57,6 +60,78 @@ class _StoreScreenState extends State<StoreScreen> {
                     ),
                   ),
                 ],
+              ),
+              Expanded(
+                child: GridView.builder(
+                    itemCount: E_Store_List.length,
+                    // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 70),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 2,
+                      mainAxisExtent: 230,
+                    ),
+                    itemBuilder: (context, index) {
+                      var data = E_Store_List[index];
+                      return InkWell(
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            elevation: 10,
+                            color: Color(0xFF232441),
+                            shadowColor: Colors.grey,
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Center(
+                                child: Column(children: [
+                                  SizedBox(
+                                    width: 150,
+                                    height: 90,
+                                    child: Image.asset(
+                                      data.Image!,
+                                    ),
+                                  ),
+                                  fixheight1,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        data.Price!,
+                                        style: GoogleFonts.alike(
+                                          fontSize: 16,
+                                          color: appcolors.white,
+                                        ),
+                                      ),
+                                      fixwidth3,
+                                      Text(
+                                        data.disPrice!,
+                                        style: TextStyle(
+                                          color: Colors.grey[700],
+                                          fontSize: 13,
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  fixheight1,
+                                  Text(
+                                    data.Sub_name!,
+                                    style: GoogleFonts.alike(
+                                      fontSize: 20,
+                                      color: appcolors.white,
+                                    ),
+                                  ),
+                                ]),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
               ),
             ]),
       ),
