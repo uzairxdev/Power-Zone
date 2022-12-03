@@ -24,6 +24,7 @@ class _WorkoutguestScreenState extends State<WorkoutguestScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,
         body: Container(
           width: double.infinity,
