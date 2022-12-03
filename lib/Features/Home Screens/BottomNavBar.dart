@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:power_zone/Features/Category%20Screen/CategoryScreen.dart';
+import 'package:power_zone/Features/E%20Store%20Screen/E_StoreScreen.dart';
 import 'package:power_zone/Features/Profile%20Screen/Profile_Screen.dart';
 import 'package:power_zone/Features/Home%20Screens/Home_Screen.dart';
 
@@ -56,7 +56,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               GButton(
                 icon: Icons.grid_view_rounded,
-                text: 'E Shop',
+                text: 'E Store',
               ),
               GButton(
                 icon: Icons.person,

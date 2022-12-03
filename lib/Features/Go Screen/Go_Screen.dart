@@ -26,8 +26,8 @@ class _GoScreenState extends State<GoScreen> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage(
-              'images/back7.jpg',
+            image: const NetworkImage(
+              'https://images.pexels.com/photos/9602287/pexels-photo-9602287.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
             ),
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.5), BlendMode.darken),

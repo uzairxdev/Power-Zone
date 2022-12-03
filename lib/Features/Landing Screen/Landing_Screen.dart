@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
+import 'package:power_zone/Core/Images_Models/Images_Model.dart';
 import 'package:power_zone/Features/Guest%20Screens/guest_screen.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
@@ -27,8 +28,8 @@ class _LandingScreenState extends State<LandingScreen> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-              'images/back1.jpg',
+            image: NetworkImage(
+              "https://images.pexels.com/photos/775325/pexels-photo-775325.png?auto=compress&cs=tinysrgb&w=600",
             ),
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.7), BlendMode.darken),

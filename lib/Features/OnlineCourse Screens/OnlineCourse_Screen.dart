@@ -23,8 +23,8 @@ class _OnlineCourseState extends State<OnlineCourse> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage(
-              'images/back6.jpg',
+            image: const NetworkImage(
+              'https://img.freepik.com/premium-photo/young-caucasian-fitness-boy-his-30s-doing-push-jerk-gym_378494-921.jpg',
             ),
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.3), BlendMode.darken),

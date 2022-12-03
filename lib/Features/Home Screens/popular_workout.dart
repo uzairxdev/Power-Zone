@@ -55,7 +55,7 @@ class PopularWorkout extends StatelessWidget {
                             width: 135.w,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage(
+                                  image: NetworkImage(
                                     popular[index].imagUrl,
                                   ),
                                   colorFilter: ColorFilter.mode(

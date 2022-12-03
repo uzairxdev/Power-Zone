@@ -23,8 +23,8 @@ class _UtlimateWomenScreenState extends State<UtlimateWomenScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const AssetImage(
-            'images/back5.jpg',
+          image: const NetworkImage(
+            'https://images.pexels.com/photos/13106586/pexels-photo-13106586.jpeg?auto=compress&cs=tinysrgb&w=600',
           ),
           colorFilter:
               ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
