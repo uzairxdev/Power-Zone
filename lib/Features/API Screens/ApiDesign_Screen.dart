@@ -1,5 +1,6 @@
 import 'package:countdown_progress_indicator/countdown_progress_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ApiDesignScreen extends StatefulWidget {
@@ -61,7 +62,7 @@ class _ApiDesignScreenState extends State<ApiDesignScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 340,
+                    height: 300.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       image: DecorationImage(

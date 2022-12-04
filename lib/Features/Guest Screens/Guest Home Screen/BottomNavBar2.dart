@@ -53,15 +53,15 @@ class _BottomNavBar2State extends State<BottomNavBar2> {
             tabs: [
               GButton(
                 icon: Icons.fitness_center_outlined,
-                text: 'Workout',
+                text: 'WORKOUT',
               ),
               GButton(
                 icon: Icons.grid_view_rounded,
-                text: 'Category',
+                text: 'E STORE',
               ),
               GButton(
                 icon: Icons.person,
-                text: 'Profile',
+                text: 'PROFILE',
               ),
             ],
             selectedIndex: _selectedIndex,

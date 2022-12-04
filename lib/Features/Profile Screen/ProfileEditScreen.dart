@@ -82,8 +82,9 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                       ),
                     ],
                   ),
+                  fixheight3,
                   Container(
-                    width: 110.w,
+                    width: 100.w,
                     height: 100.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(200.0),
@@ -93,6 +94,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                       ),
                     ),
                   ),
+                  fixheight3,
                   costum_textbutton(
                     name: 'Change Profile Picture',
                     fontsize: 23,

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
-import 'package:power_zone/Features/Home%20Screens/fullBody_workout.dart';
-import 'package:power_zone/Features/Home%20Screens/hard_workout.dart';
-import 'package:power_zone/Features/Home%20Screens/popular_workout.dart';
-import 'package:power_zone/Features/OnlineCourse%20Screens/PurchaseTrain_Screen.dart';
 
+import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
+import '../OnlineCourse Screens/PurchaseTrain_Screen.dart';
+import '../Profile Screen/Profile_Screen.dart';
+import 'fullBody_workout.dart';
+import 'hard_workout.dart';
+import 'popular_workout.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

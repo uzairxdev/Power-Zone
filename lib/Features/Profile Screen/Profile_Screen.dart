@@ -52,6 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 top: 25.h,
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: 55.w,
@@ -193,6 +194,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
+          fixheight,
           fixheight,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),

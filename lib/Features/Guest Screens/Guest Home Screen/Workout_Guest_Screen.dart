@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:power_zone/Features/Guest%20Screens/Guest%20Home%20Screen/GuestHomeScreen.dart';
 
 import '../../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../../Core/Costum_Color/App Colors/app_colors.dart';
-import '../../OnlineCourse Screens/PurchaseTrain_Screen.dart';
+import 'GuestHomeScreen.dart';
 import 'fullBody_workout2.dart';
 import 'hard_workout2.dart';
 import 'popular_workout2.dart';

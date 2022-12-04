@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/retry.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
 
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
@@ -74,18 +76,19 @@ class _StoreScreenState extends State<StoreScreen> {
                     itemBuilder: (context, index) {
                       var data = E_Store_List[index];
                       return InkWell(
+                        borderRadius: BorderRadius.circular(20.r),
                         onTap: () {},
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(5.sp),
                           child: Card(
                             elevation: 10,
                             color: Color(0xFF232441),
                             shadowColor: Colors.grey,
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadiusDirectional.circular(20)),
+                                    BorderRadiusDirectional.circular(20.r)),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(6.sp),
                               child: Center(
                                 child: Column(children: [
                                   SizedBox(
@@ -118,11 +121,13 @@ class _StoreScreenState extends State<StoreScreen> {
                                     ],
                                   ),
                                   fixheight1,
-                                  Text(
-                                    data.Sub_name!,
-                                    style: GoogleFonts.alike(
-                                      fontSize: 20,
-                                      color: appcolors.white,
+                                  Center(
+                                    child: Text(
+                                      data.Sub_name!,
+                                      style: GoogleFonts.alike(
+                                        fontSize: 20,
+                                        color: appcolors.white,
+                                      ),
                                     ),
                                   ),
                                 ]),
