@@ -37,6 +37,7 @@ class _LandingScreenState extends State<LandingScreen> {
         ),
         child: Scaffold(
             backgroundColor: Colors.transparent,
+            resizeToAvoidBottomInset: false,
             body: Center(
               child: Padding(
                 padding: const EdgeInsets.all(40.0),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -91,12 +92,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     var Password = passwordcontroller.text.trim();
 
                     if (Email.isEmpty || Password.isEmpty) {
-                      // show erroe toast
-
+                      // show error toast
                       Get.snackbar(
                         'Empty Fields',
                         "Please Enter Email and Password",
                         colorText: Colors.white,
+                        icon: Icon(
+                          Icons.warning_amber,
+                          color: Colors.white,
+                        ),
                       );
                       return;
                     }
@@ -106,28 +110,102 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Password',
                         'Please Enter The Correct Password',
                         colorText: Colors.white,
+                        icon: Icon(
+                          Icons.warning_amber,
+                          color: Colors.white,
+                        ),
                       );
                       return;
                     }
-                    // request to firebase auth
 
-//Progress bar
+                    //Progress bar
                     QuickAlert.show(
                       context: context,
                       type: QuickAlertType.loading,
                       title: 'Loading .....',
                       titleColor: Colors.white,
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.grey.shade700,
                       text: 'Fetching Your Data',
                       textColor: appcolors.white,
                     );
+
+                    // request to firebase auth
+                    try {
+                      FirebaseAuth auth = FirebaseAuth.instance;
+                      UserCredential userCredential =
+                          await auth.signInWithEmailAndPassword(
+                              email: Email, password: Password);
+
+                      if (userCredential.user != null) {
+                        Navigator.of(context).pop();
+
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return UtlimateWomenScreen();
+                            },
+                          ),
+                        );
+                      } else {
+                        Get.snackbar(
+                          "Some Error",
+                          "User Not Found",
+                          colorText: Colors.white,
+                          icon: Icon(
+                            Icons.warning_amber,
+                            color: Colors.white,
+                          ),
+                        );
+                      }
+                    } on FirebaseAuthException catch (e) {
+                      Navigator.of(context).pop();
+                      if (e.code == 'user-not-found') {
+                        Get.snackbar(
+                          "Some Error",
+                          "User Not Found",
+                          colorText: Colors.white,
+                          icon: Icon(
+                            Icons.warning_amber,
+                            color: Colors.white,
+                          ),
+                        );
+                        return;
+                      } else if (e.code == 'wrong-password') {
+                        Get.snackbar(
+                          "Wrong Password",
+                          "Make Sure Password is correct",
+                          colorText: Colors.white,
+                          icon: Icon(
+                            Icons.warning_amber,
+                            color: Colors.white,
+                          ),
+                        );
+                        return;
+                      }
+                    } catch (e) {
+                      Navigator.of(context).pop();
+                      Get.snackbar(
+                        "Erorr Found",
+                        "Something went wrong",
+                        colorText: Colors.white,
+                        icon: Icon(
+                          Icons.warning_amber,
+                          color: Colors.white,
+                        ),
+                      );
+                      return;
+                    }
 
                     final SharedPreferences sharedPreferences =
                         await SharedPreferences.getInstance();
                     sharedPreferences.setString('Email', Email);
 
-                    Get.to(
-                      UtlimateWomenScreen(),
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      title: "Successfully Login",
+                      backgroundColor: Colors.grey.shade700,
+                      titleColor: Colors.white,
                     );
                   },
                 ),

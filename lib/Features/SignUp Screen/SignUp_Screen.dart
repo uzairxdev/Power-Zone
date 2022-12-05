@@ -1,14 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:power_zone/Core/Costum_Color/App%20Colors/app_colors.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
 import '../../Core/Costum Widgets/Common TextField/costum_textField.dart';
 import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
 import '../../Core/Costum Widgets/Common Text/costum_txt.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
+import '../../Core/Costum_Color/App Colors/app_colors.dart';
 import '../Login Screen/Login_Screen.dart';
+import '../Ultimate Women/UltimateWomen_Screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -19,9 +24,15 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   var email = false.obs;
-  var emailcontroller = TextEditingController();
-  var passwordcontroller = TextEditingController();
-  var confirmpasswordcontroller = TextEditingController();
+  var EmailController = TextEditingController();
+  var PasswordController = TextEditingController();
+  var ConfirmPasswordController = TextEditingController();
+
+  void clearText() {
+    EmailController.clear();
+    PasswordController.clear();
+    ConfirmPasswordController.clear();
+  }
 
   Appcolors appcolors = Appcolors();
   @override
@@ -58,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Costum_txt(text: 'Email', fontcolor: appcolors.white),
                   ),
                   costum_txtField(
-                      controller: emailcontroller,
+                      controller: EmailController,
                       email: email,
                       hintTxt: 'Enter Your Email',
                       icon: Icons.email_outlined,
@@ -70,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         text: 'Password', fontcolor: appcolors.white),
                   ),
                   costum_txtField2(
-                    controller: passwordcontroller,
+                    controller: PasswordController,
                     hintText: 'Enter Your Password',
                   ),
                   fixheight,
@@ -80,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         text: 'Confirm Password', fontcolor: appcolors.white),
                   ),
                   costum_txtField2(
-                    controller: confirmpasswordcontroller,
+                    controller: ConfirmPasswordController,
                     hintText: 'Confirm Password',
                   ),
                   fixheight,
@@ -88,10 +99,133 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     text: 'Sign Up',
                     btnColor: appcolors.blue,
                     textColor: Colors.white,
-                    onpressed: () {
+                    onpressed: () async {
+                      //
+                      var email = EmailController.text.trim();
+                      var password = PasswordController.text.trim();
+                      var confirmPassword =
+                          ConfirmPasswordController.text.trim();
+
+                      if (email.isEmpty ||
+                          password.isEmpty ||
+                          confirmPassword.isEmpty) {
+                        // show erroe toast
+                        Get.snackbar(
+                          'Warning',
+                          "Please fill all the fields",
+                          colorText: Colors.white,
+                          icon: Icon(
+                            Icons.warning_amber,
+                            color: Colors.white,
+                          ),
+                        );
+
+                        return;
+                      }
+                      if (password.length < 8) {
+                        // show error toast
+                        Get.snackbar(
+                          'Password Error',
+                          'Weak Password Make it Strong',
+                          colorText: Colors.white,
+                          icon: Icon(
+                            Icons.warning_amber,
+                            color: Colors.white,
+                          ),
+                        );
+                        return;
+                      }
+                      if (password != confirmPassword) {
+                        // show error toast
+                        Get.snackbar(
+                          "Warning",
+                          "Passwords does not match",
+                          colorText: Colors.white,
+                          icon: Icon(
+                            Icons.warning_amber,
+                            color: Colors.white,
+                          ),
+                        );
+                        return;
+                      }
+
+                      //Progress bar
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.loading,
+                        title: 'Loading .....',
+                        titleColor: Colors.white,
+                        backgroundColor: Colors.grey.shade700,
+                        text: 'Fetching Your Data',
+                        textColor: appcolors.white,
+                      );
+
+                      // request to firebase auth
+                      try {
+                        FirebaseAuth auth = FirebaseAuth.instance;
+
+                        UserCredential userCredential =
+                            await auth.createUserWithEmailAndPassword(
+                                email: email, password: password);
+
+                        FirebaseFirestore.instance
+                            .collection('userCredential')
+                            .doc(userCredential.user!.uid)
+                            .set({
+                          'user_Id': userCredential.user!.uid,
+                          'email': email,
+                          'password': password,
+                          'confirmPassword': confirmPassword,
+                        });
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'email-already-in-use') {
+                          Navigator.of(context).pop();
+                          Get.snackbar(
+                            "Email Error",
+                            "Email is already in use",
+                            colorText: Colors.white,
+                            icon: Icon(
+                              Icons.warning_amber,
+                              color: Colors.white,
+                            ),
+                          );
+                          return;
+                        } else if (e.code == 'weak-password') {
+                          Navigator.of(context).pop();
+                          Get.snackbar(
+                            "Wrong Password",
+                            "weak password make it strong",
+                            colorText: Colors.white,
+                            icon: Icon(
+                              Icons.warning_amber,
+                              color: Colors.white,
+                            ),
+                          );
+                          return;
+                        }
+                      } catch (e) {
+                        Navigator.of(context).pop();
+                        QuickAlert.show(
+                          context: context,
+                          type: QuickAlertType.error,
+                          titleColor: Colors.white,
+                          backgroundColor: Colors.grey.shade700,
+                          textColor: appcolors.white,
+                        );
+                        return;
+                      }
+
                       Get.to(
-                          // Go to Details Screen
-                          LoginScreen());
+                          // Go to Home Screen
+                          UtlimateWomenScreen());
+                      clearText();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        title: "Successfully Rigesterd",
+                        backgroundColor: Colors.grey.shade700,
+                        titleColor: Colors.white,
+                      );
                     },
                   ),
                   SizedBox(
