@@ -10,7 +10,7 @@ Thanks!
 
 This project is a starting point for a Flutter application.
 
-So my Github is: https://github.com/uzairdeveloper2
+So my Github is: https://github.com/uzairdev2
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -46,3 +46,4 @@ samples, guidance on mobile development, and a full API reference.
 <img src="https://user-images.githubusercontent.com/117645470/204100153-f9c46092-c651-460a-b1f4-04c284d75384.png" width="408">
 
 
+So That's it It"s project just for a practice purpose i should use from a scratch
