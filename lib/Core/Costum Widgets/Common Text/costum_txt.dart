@@ -6,17 +6,19 @@ class Costum_txt extends StatelessWidget {
   Costum_txt({
     required this.text,
     required this.fontcolor,
+    this.size,
     Key? key,
   }) : super(key: key);
 
   final String text;
   Color fontcolor;
+  final double? size;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: GoogleFonts.alike(
-        fontSize: 21.sm,
+        fontSize: size ?? 21.sm,
         fontWeight: FontWeight.bold,
         color: fontcolor,
       ),

@@ -1,14 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
-import '../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
-import '../../Core/Costum_Color/App Colors/app_colors.dart';
-import 'Profile_Screen.dart';
+import '../../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
+import '../../../Core/Costum Widgets/Common TextButton/costum_textbutton.dart';
+import '../../../Core/Costum_Color/App Colors/app_colors.dart';
+import 'Costum_ListTile.dart';
 
 class ProfileEditScreen extends StatefulWidget {
   const ProfileEditScreen({super.key});
@@ -18,6 +21,16 @@ class ProfileEditScreen extends StatefulWidget {
 }
 
 class _ProfileEditScreenState extends State<ProfileEditScreen> {
+  File? pickedImage;
+  bool showLocalImage = false;
+  pickImageFromDevive() async {
+    XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (file == null) return;
+    pickedImage = File(file.path);
+    showLocalImage = true;
+    setState(() {});
+  }
+
   Appcolors appcolors = Appcolors();
   @override
   Widget build(BuildContext context) {
@@ -47,6 +60,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  fixheight,
                   Row(
                     children: [
                       Container(
@@ -83,23 +97,75 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                     ],
                   ),
                   fixheight3,
-                  Container(
-                    width: 100.w,
-                    height: 100.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(200.0),
-                      image: const DecorationImage(
-                        image: AssetImage("images/my.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  CircleAvatar(
+                    radius: 55,
+                    backgroundImage: showLocalImage == false
+                        ? AssetImage("images/my.png")
+                        : FileImage(pickedImage!) as ImageProvider,
                   ),
                   fixheight3,
                   costum_textbutton(
                     name: 'Change Profile Picture',
                     fontsize: 23,
                     txtColor: appcolors.blue,
-                    onpressed: () {},
+                    onpressed: () {
+                      showModalBottomSheet(
+                          backgroundColor: Color.fromARGB(255, 19, 20, 41),
+                          enableDrag: true,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.r),
+                          ),
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ListTile(
+                                  leading: Icon(
+                                    Icons.camera_alt_outlined,
+                                    color: appcolors.white,
+                                  ),
+                                  title: Text(
+                                    "With Camera",
+                                    style: GoogleFonts.alike(
+                                      color: appcolors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: appcolors.white,
+                                  ),
+                                  onTap: () {},
+                                ),
+                                Divider(
+                                  color: Colors.grey.shade700,
+                                ),
+                                ListTile(
+                                  leading: Icon(
+                                    Icons.storage_rounded,
+                                    color: appcolors.white,
+                                  ),
+                                  title: Text(
+                                    "With Gallery",
+                                    style: GoogleFonts.alike(
+                                      color: appcolors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: appcolors.white,
+                                  ),
+                                  onTap: () {
+                                    pickImageFromDevive();
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          });
+                    },
                   ),
                 ],
               ),
@@ -111,91 +177,20 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: ListTile(
-                        title: Text(
-                          'First Name',
-                          style: GoogleFonts.alike(
-                            color: appcolors.blue,
-                            fontSize: 20,
-                          ),
-                        ),
-                        subtitle: TextFormField(
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            hintText: 'Enter First Name',
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ),
+                      child: CostumListTile(
+                          text: "First Name", hintText: "Enter First Name"),
                     ),
                     Expanded(
-                      child: ListTile(
-                        title: Text(
-                          'Last Name',
-                          style: GoogleFonts.alike(
-                            color: appcolors.blue,
-                            fontSize: 20,
-                          ),
-                        ),
-                        subtitle: TextFormField(
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            hintText: 'Enter Last Name',
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ),
+                      child: CostumListTile(
+                          text: "Last Name", hintText: "Enter Last Name"),
                     ),
                   ],
                 ),
                 fixheight2,
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  child: Text(
-                    'Username',
-                    style: GoogleFonts.alike(
-                      color: appcolors.blue,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  child: TextFormField(
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                    decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                      ),
-                      hintText: 'Enter Your Username',
-                      hintStyle: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-                ),
+                CostumListTile(
+                    text: "Username", hintText: "Enter Your Username"),
                 fixheight2,
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
@@ -263,61 +258,14 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                 ),
                 fixheight2,
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: ListTile(
-                        title: Text(
-                          'Date of Birth',
-                          style: GoogleFonts.alike(
-                            color: appcolors.blue,
-                            fontSize: 20,
-                          ),
-                        ),
-                        subtitle: TextFormField(
-                          keyboardType: TextInputType.number,
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            hintText: 'E.g: 17-8-200',
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ),
+                      child: CostumListTile(
+                          text: "Date of Birth", hintText: "E.g: 17-8-2000"),
                     ),
                     Expanded(
-                      child: ListTile(
-                        title: Text(
-                          'Gender',
-                          style: GoogleFonts.alike(
-                            color: appcolors.blue,
-                            fontSize: 20,
-                          ),
-                        ),
-                        subtitle: TextFormField(
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            hintText: 'E.g: Male',
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                        child: CostumListTile(
+                            text: "Gender", hintText: "E.g: Male"))
                   ],
                 ),
                 SizedBox(
@@ -327,7 +275,8 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: InkWell(
                     onTap: () {
-                      Get.to(ProfileScreen());
+                      // go to the profile screen after give user details
+                      Get.back();
                     },
                     child: Container(
                       height: 50.h,

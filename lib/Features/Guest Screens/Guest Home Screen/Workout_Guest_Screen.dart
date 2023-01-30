@@ -76,11 +76,10 @@ class _WorkoutguestScreenState extends State<WorkoutguestScreen> {
                               width: 3.w,
                               color: appcolors.blue,
                             ),
-                          ),
-                          child: Icon(
-                            Icons.person_outline,
-                            color: appcolors.white,
-                            size: 35,
+                            image: const DecorationImage(
+                              image: AssetImage("images/my.png"),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),

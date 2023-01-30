@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: appcolors.blue,
                           ),
                           image: const DecorationImage(
-                            image: AssetImage("images/my.jpg"),
+                            image: AssetImage("images/my.png"),
                             fit: BoxFit.cover,
                           ),
                         ),

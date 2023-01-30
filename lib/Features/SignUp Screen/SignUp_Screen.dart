@@ -24,9 +24,9 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   var email = false.obs;
-  var EmailController = TextEditingController();
-  var PasswordController = TextEditingController();
-  var ConfirmPasswordController = TextEditingController();
+  TextEditingController EmailController = TextEditingController();
+  TextEditingController PasswordController = TextEditingController();
+  TextEditingController ConfirmPasswordController = TextEditingController();
 
   void clearText() {
     EmailController.clear();
@@ -110,42 +110,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           password.isEmpty ||
                           confirmPassword.isEmpty) {
                         // show erroe toast
-                        Get.snackbar(
-                          'Warning',
-                          "Please fill all the fields",
-                          colorText: Colors.white,
-                          icon: Icon(
-                            Icons.warning_amber,
-                            color: Colors.white,
-                          ),
-                        );
-
+                        costumSnackbar('Warning', "Please fill all the fields");
                         return;
                       }
                       if (password.length < 8) {
                         // show error toast
-                        Get.snackbar(
-                          'Password Error',
-                          'Weak Password Make it Strong',
-                          colorText: Colors.white,
-                          icon: Icon(
-                            Icons.warning_amber,
-                            color: Colors.white,
-                          ),
-                        );
+                        costumSnackbar(
+                            'Password Error', 'Weak Password Make it Strong');
+
                         return;
                       }
                       if (password != confirmPassword) {
                         // show error toast
-                        Get.snackbar(
-                          "Warning",
-                          "Passwords does not match",
-                          colorText: Colors.white,
-                          icon: Icon(
-                            Icons.warning_amber,
-                            color: Colors.white,
-                          ),
-                        );
+                        costumSnackbar("Warning", "Passwords does not match");
+
                         return;
                       }
 
@@ -228,9 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       );
                     },
                   ),
-                  SizedBox(
-                    height: 8.h,
-                  ),
+                  fixheight3,
                   Row(
                     children: [
                       Text(
@@ -259,6 +235,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  SnackbarController costumSnackbar(String title, String message) {
+    return Get.snackbar(
+      title,
+      message,
+      colorText: Colors.white,
+      icon: Icon(
+        Icons.warning_amber,
+        color: Colors.white,
       ),
     );
   }

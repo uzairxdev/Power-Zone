@@ -37,6 +37,7 @@ class _StartScreenState extends State<StartScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: Column(
               children: [

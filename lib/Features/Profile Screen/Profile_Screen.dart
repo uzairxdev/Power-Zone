@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:power_zone/Core/Costum%20Widgets/Common%20SizedBox/costum_widgets.dart';
 import 'package:power_zone/Features/Landing%20Screen/Landing_Screen.dart';
-import 'package:power_zone/Features/Profile%20Screen/ProfileEditScreen.dart';
+import 'package:power_zone/Features/Profile%20Screen/Profile%20Edit%20Screen/ProfileEditScreen.dart';
 import 'package:power_zone/Features/User%20Agreement%20Screen/UserAgreementScreen.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
@@ -54,21 +54,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 55.w,
-                    height: 55.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40.0),
-                      border: Border.all(
-                        width: 3.w,
-                        color: appcolors.blue,
-                      ),
-                      image: const DecorationImage(
-                        image: AssetImage("images/my.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                  CircleAvatar(
+                    radius: 30.r,
+                    backgroundImage: AssetImage(
+                      "images/my.png",
                     ),
                   ),
+                  // Container(
+                  //   width: 60.w,
+                  //   height: 55.h,
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(40.0),
+                  //     border: Border.all(
+                  //       width: 3.w,
+                  //       color: appcolors.blue,
+                  //     ),
+                  //     image: const DecorationImage(
+                  //       image: AssetImage("images/my.png"),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
                   fixwidth,
                   Text(
                     'Muhammad Uzair',
@@ -122,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     CostumDetails(
                         icon: Icons.email_outlined,
                         text1: 'Email',
-                        text2: 'uzairdev2@flutter.com',
+                        text2: 'uzair321@gmail.com',
                         appcolors: appcolors),
                     fixheight3,
                     Divider(

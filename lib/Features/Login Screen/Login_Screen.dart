@@ -2,7 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quickalert/quickalert.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Core/Costum Widgets/Common btn/costum_btn.dart';
@@ -12,8 +13,8 @@ import '../../Core/Costum Widgets/Common Text/costum_txt.dart';
 import '../../Core/Costum Widgets/Common SizedBox/costum_widgets.dart';
 import '../../Core/Costum_Color/App Colors/app_colors.dart';
 import '../Forgotten Password/ForgotPass_Screen.dart';
-import '../Ultimate Women/UltimateWomen_Screen.dart';
 import '../SignUp Screen/SignUp_Screen.dart';
+import '../Ultimate Women/UltimateWomen_Screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,8 +25,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var email = false.obs;
-  var emailcontroller = TextEditingController();
-  var passwordcontroller = TextEditingController();
+  TextEditingController EmailController = TextEditingController();
+  TextEditingController PasswordController = TextEditingController();
 
   Appcolors appcolors = Appcolors();
 
@@ -64,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 costum_txtField(
-                  controller: emailcontroller,
+                  controller: EmailController,
                   email: email,
                   hintTxt: 'Enter Your Emial',
                   icon: Icons.email_outlined,
@@ -79,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 costum_txtField2(
-                  controller: passwordcontroller,
+                  controller: PasswordController,
                   hintText: 'Enter Your Password',
                 ),
                 fixheight,
@@ -88,33 +89,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   btnColor: appcolors.blue,
                   textColor: Colors.white,
                   onpressed: () async {
-                    var Email = emailcontroller.text.trim();
-                    var Password = passwordcontroller.text.trim();
+                    var Email = EmailController.text.trim();
+                    var Password = PasswordController.text.trim();
 
                     if (Email.isEmpty || Password.isEmpty) {
                       // show error toast
-                      Get.snackbar(
-                        'Empty Fields',
-                        "Please Enter Email and Password",
-                        colorText: Colors.white,
-                        icon: Icon(
-                          Icons.warning_amber,
-                          color: Colors.white,
-                        ),
-                      );
+                      costumSnackbar(
+                          'Empty Fields', "Please Enter Email and Password");
                       return;
                     }
                     if (Password.length < 8) {
                       // show error toast
-                      Get.snackbar(
-                        'Password',
-                        'Please Enter The Correct Password',
-                        colorText: Colors.white,
-                        icon: Icon(
-                          Icons.warning_amber,
-                          color: Colors.white,
-                        ),
-                      );
+                      costumSnackbar(
+                          'Password', 'Please Enter The Correct Password');
                       return;
                     }
 
@@ -240,6 +227,18 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  SnackbarController costumSnackbar(String title, String message) {
+    return Get.snackbar(
+      title,
+      message,
+      colorText: Colors.white,
+      icon: Icon(
+        Icons.warning_amber,
+        color: Colors.white,
       ),
     );
   }
