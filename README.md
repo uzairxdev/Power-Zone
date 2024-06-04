@@ -10,7 +10,7 @@ Thanks!
 
 This project is a starting point for a Flutter application.
 
-So my Github is: https://github.com/uzairdev2
+So my Github is: https://github.com/uzairxdev
 
 A few resources to get you started if this is your first Flutter project:
 
